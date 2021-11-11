@@ -1,0 +1,12 @@
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\bin\Debug\net5.0\YTScrapper.Domain.deps.json
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\bin\Debug\net5.0\YTScrapper.Domain.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\bin\Debug\net5.0\ref\YTScrapper.Domain.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\bin\Debug\net5.0\YTScrapper.Domain.pdb
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\obj\Debug\net5.0\YTScrapper.Domain.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\obj\Debug\net5.0\YTScrapper.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\obj\Debug\net5.0\YTScrapper.Domain.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\obj\Debug\net5.0\YTScrapper.Domain.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\obj\Debug\net5.0\YTScrapper.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\obj\Debug\net5.0\YTScrapper.Domain.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\obj\Debug\net5.0\ref\YTScrapper.Domain.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\obj\Debug\net5.0\YTScrapper.Domain.pdb
