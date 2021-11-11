@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -42,41 +43,35 @@ namespace YTScrapper.Infrastructure.Scrapers
                 throw new YoutubeWrongVideoUrlException(searchUrl);
             }
 
+            var searchItem = new SearchItem()
+            {
+                SearchItemUrl = searchUrl,
+                ImagePreviewUrl = string.Empty
+            };
+
             using var client = await _clientProvider.Provide();
 
             await _clientProvider.SetDefaultUserString(client);
             var htmlSearchPage = client.DownloadString(searchUrl);
 
-            var title = string.Empty;
-            var description = string.Empty;
-            var author = string.Empty;
-            var duration = string.Empty;
+            string titleRegex = @"""title"":\s*""([^""]+)"",";
+            searchItem.Title = GetFirstMatchFromRegexPattern(titleRegex, htmlSearchPage);
 
-            // title: "title":\s*"([a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?\s\n]+)",
-            string titleRegex = @"""title"":\s*""([a - zA - Z0 - 9!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?\s\n]+)"",";
-            title = GetFirstMatchFromRegexPattern(titleRegex, htmlSearchPage);
+            string descriptionRegex = @"""shortDescription"":\s*""([^""]+)"",";
+            searchItem.Description = GetFirstMatchFromRegexPattern(descriptionRegex, htmlSearchPage);
 
-            // description: "shortDescription":\s*"([a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?\s\n]+)",
-            string descriptionRegex = @"""shortDescription"":\s*""([a - zA - Z0 - 9!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?\s\n]+)"",";
-            description = GetFirstMatchFromRegexPattern(descriptionRegex, htmlSearchPage);
+            string authorRegex = @"""channelName"":\s*""([^""]+)"",";
+            searchItem.Author = GetFirstMatchFromRegexPattern(authorRegex, htmlSearchPage);
 
-            // author: "channelName":\s*"([a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?\s\n]+)",
-            string authorRegex = @"""channelName"":\s*""([a - zA - Z0 - 9!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?\s\n]+)"",";
-            author = GetFirstMatchFromRegexPattern(authorRegex, htmlSearchPage);
+            string durationRegex = @"""approxDurationMs"":\s*""([^""]+)"",";
+            var duration = GetFirstMatchFromRegexPattern(durationRegex, htmlSearchPage);
+            var durationTimeSpan = TimeSpan.FromMilliseconds(Convert.ToDouble(duration));
+            searchItem.Duration = $"{durationTimeSpan.Hours}:{durationTimeSpan.Minutes}:{durationTimeSpan.Seconds}";
 
-            // duration: "approxDurationMs":\s*"([a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?\s\n]+)",
-            string durationRegex = @"""approxDurationMs"":\s*""([a - zA - Z0 - 9!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?\s\n]+)"",";
-            duration = GetFirstMatchFromRegexPattern(durationRegex, htmlSearchPage);
+            string thumbnailRegex = @"""url"":\s*""(https:\/\/i\.ytimg\.com\/vi\/[^""]+)"",";
+            searchItem.ImagePreviewUrl = GetFirstMatchFromRegexPattern(thumbnailRegex, htmlSearchPage);
 
-            return new()
-            {
-                SearchItemUrl = searchUrl,
-                ImagePreviewUrl = string.Empty,
-                Title = title,
-                Description = description,
-                Author = author,
-                Duration = duration
-            };
+            return searchItem;
         }
 
         private string GetFirstMatchFromRegexPattern(string regex, string text)
@@ -89,7 +84,7 @@ namespace YTScrapper.Infrastructure.Scrapers
             }
             else
             {
-                return m.Groups[0].Value;
+                return m.Groups[1].Value;
             }
         }
     }
