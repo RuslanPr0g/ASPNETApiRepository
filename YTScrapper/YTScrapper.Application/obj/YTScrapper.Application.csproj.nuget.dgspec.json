@@ -100,7 +100,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Administrator\\Desktop\\YoutubeParserApp\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\Desktop\\YoutubeParserApp\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTScrapper.Application", "Y
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTScrapper.Domain", "YTScrapper.Domain\YTScrapper.Domain.csproj", "{A9CD7576-1FE1-4C9B-A4A6-B34C3C0FC217}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTScrapper.Infrastructure", "YTScrapper.Infrastructure\YTScrapper.Infrastructure.csproj", "{67532811-90CA-48D3-95B8-C78933BB2522}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A9CD7576-1FE1-4C9B-A4A6-B34C3C0FC217}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9CD7576-1FE1-4C9B-A4A6-B34C3C0FC217}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9CD7576-1FE1-4C9B-A4A6-B34C3C0FC217}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67532811-90CA-48D3-95B8-C78933BB2522}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67532811-90CA-48D3-95B8-C78933BB2522}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67532811-90CA-48D3-95B8-C78933BB2522}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67532811-90CA-48D3-95B8-C78933BB2522}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,4 +8,8 @@
     <Folder Include="Enums\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\YTScrapper.Shared\YTScrapper.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

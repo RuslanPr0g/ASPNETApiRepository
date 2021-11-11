@@ -10,3 +10,6 @@ C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\obj
 C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\obj\Debug\net5.0\YTScrapper.Domain.dll
 C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\obj\Debug\net5.0\ref\YTScrapper.Domain.dll
 C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\obj\Debug\net5.0\YTScrapper.Domain.pdb
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\bin\Debug\net5.0\YTScrapper.Shared.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\bin\Debug\net5.0\YTScrapper.Shared.pdb
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Domain\obj\Debug\net5.0\YTScrapper.Domain.csproj.CopyComplete

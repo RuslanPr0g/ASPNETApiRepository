@@ -46,7 +46,7 @@ namespace YTScrapper.Application.Runners
             _scraperLimiter.WaitOne();
             try
             {
-                var result = await scrapper.Search(searchRequest, token);
+                var result = await scrapper.Scrap(searchRequest, token);
                 if (result.HasValue)
                 {
                     resultCollection.Add(result.Value);

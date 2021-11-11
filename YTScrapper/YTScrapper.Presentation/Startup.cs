@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using YTScrapper.Application.Extentions;
+using YTScrapper.Infrastructure;
 
 namespace YTScrapper
 {
@@ -20,7 +21,8 @@ namespace YTScrapper
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddApplication();
+                .AddApplication()
+                .AddInfrastructure(Configuration);
 
             services.AddControllers();
 

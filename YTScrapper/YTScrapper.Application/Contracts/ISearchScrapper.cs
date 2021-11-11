@@ -7,6 +7,6 @@ namespace YTScrapper.Application.Contracts
 {
     public interface ISearchScrapper
     {
-        Task<ValueOrNull<SearchResult>> Search(SearchRequest request, CancellationToken token = default);
+        Task<ValueOrNull<SearchResult>> Scrap(SearchRequest request, CancellationToken token = default);
     }
 }

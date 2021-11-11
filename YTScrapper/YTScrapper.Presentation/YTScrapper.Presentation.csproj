@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\YTScrapper.Application\YTScrapper.Application.csproj" />
+    <ProjectReference Include="..\YTScrapper.Infrastructure\YTScrapper.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

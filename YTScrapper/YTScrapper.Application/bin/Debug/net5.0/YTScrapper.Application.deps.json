@@ -25,6 +25,9 @@
         }
       },
       "YTScrapper.Domain/1.0.0": {
+        "dependencies": {
+          "YTScrapper.Shared": "1.0.0"
+        },
         "runtime": {
           "YTScrapper.Domain.dll": {}
         }

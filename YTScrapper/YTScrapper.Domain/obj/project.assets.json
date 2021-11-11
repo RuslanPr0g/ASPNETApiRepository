@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "YTScrapper.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/YTScrapper.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/YTScrapper.Shared.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "YTScrapper.Shared/1.0.0": {
+      "type": "project",
+      "path": "../YTScrapper.Shared/YTScrapper.Shared.csproj",
+      "msbuildProject": "../YTScrapper.Shared/YTScrapper.Shared.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "YTScrapper.Shared >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Administrator\\.nuget\\packages\\": {},
@@ -37,7 +56,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Administrator\\Desktop\\YoutubeParserApp\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\Desktop\\YoutubeParserApp\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

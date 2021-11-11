@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v5.0": {
       "YTScrapper.Domain/1.0.0": {
+        "dependencies": {
+          "YTScrapper.Shared": "1.0.0"
+        },
         "runtime": {
           "YTScrapper.Domain.dll": {}
+        }
+      },
+      "YTScrapper.Shared/1.0.0": {
+        "runtime": {
+          "YTScrapper.Shared.dll": {}
         }
       }
     }
   },
   "libraries": {
     "YTScrapper.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "YTScrapper.Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
