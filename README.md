@@ -16,4 +16,4 @@ Also, you can access already scrapped data (I store in DB) by author or any othe
 ### Stack
 - Clean architecture
 - .NET5
-- SqlLight
+- SqlLite
