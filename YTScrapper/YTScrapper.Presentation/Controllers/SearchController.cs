@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using YTScrapper.Application.DTOs;
@@ -20,8 +21,16 @@ namespace YTScrapper.Presentation.Controllers
         [HttpPost("search")]
         public async Task<IActionResult> Search([FromBody] SearchRequest searchRequest, CancellationToken token)
         {
-            var result = await _runner.Run(searchRequest, token);
-            return Ok(result);
+            var result = (await _runner.Run(searchRequest, token)).First();
+
+            if (result.HasValue)
+            {
+                return Ok(result.Value);
+            }
+            else
+            {
+                return BadRequest(result.NullMessage);
+            }
         }
     }
 }

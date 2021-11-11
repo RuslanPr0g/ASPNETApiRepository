@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using YTScrapper.Application.Contracts;
 using YTScrapper.Application.DTOs;
+using YTScrapper.Shared.Models;
 
 namespace YTScrapper.Application.Runners
 {
@@ -19,10 +20,10 @@ namespace YTScrapper.Application.Runners
             _collector = collector;
         }
 
-        public async Task<List<SearchResult>> Run(SearchRequest searchRequest, CancellationToken token = default)
+        public async Task<List<ValueOrNull<SearchResult>>> Run(SearchRequest searchRequest, CancellationToken token = default)
         {
             var scrappers = await _collector.CollectFor(searchRequest.Websites);
-            ConcurrentBag<SearchResult> resultCollection = new();
+            ConcurrentBag<ValueOrNull<SearchResult>> resultCollection = new();
 
             try
             {
@@ -41,16 +42,13 @@ namespace YTScrapper.Application.Runners
             return resultCollection.ToList();
         }
 
-        private async Task Search(SearchRequest searchRequest, ConcurrentBag<SearchResult> resultCollection, ISearchScrapper scrapper, CancellationToken token)
+        private async Task Search(SearchRequest searchRequest, ConcurrentBag<ValueOrNull<SearchResult>> resultCollection, ISearchScrapper scrapper, CancellationToken token)
         {
             _scraperLimiter.WaitOne();
             try
             {
                 var result = await scrapper.Scrap(searchRequest, token);
-                if (result.HasValue)
-                {
-                    resultCollection.Add(result.Value);
-                }
+                resultCollection.Add(result);
             }
             finally
             {

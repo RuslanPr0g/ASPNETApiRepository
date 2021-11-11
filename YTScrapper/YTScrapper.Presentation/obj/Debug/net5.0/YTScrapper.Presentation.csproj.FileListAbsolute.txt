@@ -61,3 +61,14 @@ C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentati
 C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\YTScrapper.Application.pdb
 C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\YTScrapper.Domain.pdb
 C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\YTScrapper.Shared.pdb
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\HtmlAgilityPack.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\WebDriver.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\YTScrapper.Infrastructure.dll
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Presentation\bin\Debug\net5.0\YTScrapper.Infrastructure.pdb

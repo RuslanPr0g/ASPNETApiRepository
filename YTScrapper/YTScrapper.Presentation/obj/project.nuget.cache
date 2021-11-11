@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wohk8NvG7/SRv9mvBgdi5P/9ipjEk73tDqESLBRmP8CzwUyej0x8L0y9yKBwo1q0kD9ykaqTHlcFfaqkXAfeTA==",
+  "dgSpecHash": "E0XHyUmb8ismU88ksGk2ZJ2P0YTDTSwhlW00e0SksPsVsc4Zj6Hig6KkbIH+5KnMo1JTBma23lrOksi4p7/rsg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Administrator\\Desktop\\YoutubeParserApp\\YTScrapper\\YTScrapper.Presentation\\YTScrapper.Presentation.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\htmlagilitypack\\1.11.38\\htmlagilitypack.1.11.38.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.configuration.binder\\6.0.0\\microsoft.extensions.configuration.binder.6.0.0.nupkg.sha512",

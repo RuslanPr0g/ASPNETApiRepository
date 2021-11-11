@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using YTScrapper.Application.Contracts;
 using YTScrapper.Application.DTOs;
 using YTScrapper.Application.Enums;
+using YTScrapper.Application.Exceptions;
 using YTScrapper.Shared.Models;
 
 namespace YTScrapper.Infrastructure.Scrapers
@@ -51,6 +52,11 @@ namespace YTScrapper.Infrastructure.Scrapers
                 var response = await ScrapVideoInner(request, token);
                 resultOrNull = response;
                 code = ScraperStatusCode.Success;
+            }
+            catch (YoutubeWrongVideoUrlException exception)
+            {
+                code = ScraperStatusCode.HandledError;
+                resultOrNull = ValueOrNull<SearchResult>.CreateNull(exception.Message);
             }
             catch (Exception exception)
             {

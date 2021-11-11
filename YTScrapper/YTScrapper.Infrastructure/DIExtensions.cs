@@ -11,7 +11,7 @@ namespace YTScrapper.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config)
         {
-            services.AddScoped<ISearchScrapperCollector, ISearchScrapperCollector>();
+            services.AddScoped<ISearchScrapperCollector, SearchScraperCollector>();
             services.AddScoped<YoutubeScraper>();
             services.AddScoped<IWebClientService, WebClientService>();
             services.AddScoped<DriverInitializer>();

@@ -6,6 +6,7 @@ namespace YTScrapper.Application.DTOs
     {
         public SearchItem Item { get; }
         public string Website { get; set; }
+        public string ErrorMessage { get; set; }
 
         public SearchResult()
         {
