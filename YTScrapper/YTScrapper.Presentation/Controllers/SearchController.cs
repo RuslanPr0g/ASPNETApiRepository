@@ -56,7 +56,7 @@ namespace YTScrapper.Presentation.Controllers
             }
         }
 
-        private static YouTubeSearchItemReadDto MapDomainSearchItemToReadDto(YouTubeSearchItem youTubeSearchItem)
+        private static YouTubeSearchItemReadDto MapDomainSearchItemToReadDto(YouTubeModel youTubeSearchItem)
         {
             return new YouTubeSearchItemReadDto
             {
@@ -67,7 +67,7 @@ namespace YTScrapper.Presentation.Controllers
             };
         }
 
-        private static List<YouTubeSearchItemReadDto> MapDomainSearchItemListToReadDto(List<YouTubeSearchItem> youTubeSearchItems)
+        private static List<YouTubeSearchItemReadDto> MapDomainSearchItemListToReadDto(List<YouTubeModel> youTubeSearchItems)
         {
             return youTubeSearchItems.Select(y => MapDomainSearchItemToReadDto(y)).ToList();
         }

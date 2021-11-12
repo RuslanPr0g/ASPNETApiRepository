@@ -8,11 +8,11 @@ namespace YTScrapper.Application.Contracts
 {
     public interface ISearchService
     {
-        Task<SuccessOrFailure<YouTubeSearchItem>> GetSearchItemByYoutubeUrl(string url);
-        Task<List<YouTubeSearchItem>> GetAllSearchItems();
-        Task<List<YouTubeSearchItem>> GetSearchItemsByParameter(SearchItemFilter searchItemFilter);
-        Task<int> AddSearchItem(YouTubeSearchItem searchItem);
-        Task UpdateSearchItem(YouTubeSearchItem searchItem);
-        Task DeleteSearchItem(YouTubeSearchItem searchItem);
+        Task<SuccessOrFailure<YouTubeModel>> GetSearchItemByYoutubeUrl(string url);
+        Task<List<YouTubeModel>> GetAllSearchItems();
+        Task<List<YouTubeModel>> GetSearchItemsByParameter(SearchItemFilter searchItemFilter);
+        Task<int> AddSearchItem(YouTubeModel searchItem);
+        Task UpdateSearchItem(YouTubeModel searchItem);
+        Task DeleteSearchItem(YouTubeModel searchItem);
     }
 }

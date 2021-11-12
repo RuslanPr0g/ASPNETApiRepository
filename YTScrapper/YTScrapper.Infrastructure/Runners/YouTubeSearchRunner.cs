@@ -33,7 +33,7 @@ namespace YTScrapper.Infrastructure.Runners
             _configuration = configuration;
         }
 
-        public async Task<SuccessOrFailure<YouTubeSearchItem>> Run(string url, CancellationToken token = default)
+        public async Task<SuccessOrFailure<YouTubeModel>> Run(string url, CancellationToken token = default)
         {
             var watch = Stopwatch.StartNew();
             var searchResult = await PerformSearch(url, token);
@@ -48,7 +48,7 @@ namespace YTScrapper.Infrastructure.Runners
         private async Task<SearchResult> PerformSearch(string url, CancellationToken token)
         {
             SearchStatusCode code;
-            SuccessOrFailure<YouTubeSearchItem> resultOrNull;
+            SuccessOrFailure<YouTubeModel> resultOrNull;
             try
             {
                 resultOrNull = await SearchVideoInner(url, token);
@@ -57,12 +57,12 @@ namespace YTScrapper.Infrastructure.Runners
             catch (YoutubeWrongVideoUrlException exception)
             {
                 code = SearchStatusCode.HandledError;
-                resultOrNull = SuccessOrFailure<YouTubeSearchItem>.CreateNull(exception.Message);
+                resultOrNull = SuccessOrFailure<YouTubeModel>.CreateNull(exception.Message);
             }
             catch (Exception exception)
             {
                 code = SearchStatusCode.UnhandledError;
-                resultOrNull = SuccessOrFailure<YouTubeSearchItem>.CreateNull(exception.Message);
+                resultOrNull = SuccessOrFailure<YouTubeModel>.CreateNull(exception.Message);
             }
 
             return new SearchResult
@@ -72,7 +72,7 @@ namespace YTScrapper.Infrastructure.Runners
             };
         }
 
-        private async Task<YouTubeSearchItem> SearchVideoInner(string url, CancellationToken token)
+        private async Task<YouTubeModel> SearchVideoInner(string url, CancellationToken token)
         {
             return await ScrapVideo(url);
 
@@ -100,7 +100,7 @@ namespace YTScrapper.Infrastructure.Runners
             _logger.LogInformation(LogFormat, codeMessage, scraperName, codeMessage, time);
         }
 
-        private async Task<YouTubeSearchItem> ScrapVideo(string searchUrl)
+        private async Task<YouTubeModel> ScrapVideo(string searchUrl)
         {
             if (searchUrl.Contains("www.youtube.com/watch?v=") is false &&
                 searchUrl.Contains("https://youtu.be") is false)
@@ -108,7 +108,7 @@ namespace YTScrapper.Infrastructure.Runners
                 throw new YoutubeWrongVideoUrlException(searchUrl);
             }
 
-            var searchItem = new YouTubeSearchItem()
+            var searchItem = new YouTubeModel()
             {
                 Url = searchUrl
             };

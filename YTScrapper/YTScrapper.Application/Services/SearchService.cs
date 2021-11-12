@@ -19,7 +19,7 @@ namespace YTScrapper.Application.Services
             _scraperRunner = scraperRunner;
         }
 
-        public async Task<int> AddSearchItem(YouTubeSearchItem searchItem)
+        public async Task<int> AddSearchItem(YouTubeModel searchItem)
         {
             var searches = await GetAllSearchItems();
 
@@ -31,17 +31,17 @@ namespace YTScrapper.Application.Services
             return await _searchItemRepository.Add(searchItem);
         }
 
-        public async Task DeleteSearchItem(YouTubeSearchItem searchItem)
+        public async Task DeleteSearchItem(YouTubeModel searchItem)
         {
             await _searchItemRepository.Delete(searchItem);
         }
 
-        public async Task<List<YouTubeSearchItem>> GetAllSearchItems()
+        public async Task<List<YouTubeModel>> GetAllSearchItems()
         {
             return await _searchItemRepository.Get();
         }
 
-        public async Task<SuccessOrFailure<YouTubeSearchItem>> GetSearchItemByYoutubeUrl(string url)
+        public async Task<SuccessOrFailure<YouTubeModel>> GetSearchItemByYoutubeUrl(string url)
         {
             var searches = await GetAllSearchItems();
 
@@ -55,7 +55,7 @@ namespace YTScrapper.Application.Services
             if (result.HasValue)
             {
                 var id = await AddSearchItem(result.Value);
-                return SuccessOrFailure<YouTubeSearchItem>.CreateValue(new YouTubeSearchItem
+                return SuccessOrFailure<YouTubeModel>.CreateValue(new YouTubeModel
                 {
                     Id = id,
                     Url = url,
@@ -67,11 +67,11 @@ namespace YTScrapper.Application.Services
             }
             else
             {
-                return SuccessOrFailure<YouTubeSearchItem>.CreateNull(result.NullMessage);
+                return SuccessOrFailure<YouTubeModel>.CreateNull(result.NullMessage);
             }
         }
 
-        public async Task<List<YouTubeSearchItem>> GetSearchItemsByParameter(SearchItemFilter searchItemFilter)
+        public async Task<List<YouTubeModel>> GetSearchItemsByParameter(SearchItemFilter searchItemFilter)
         {
             if (searchItemFilter.Id is not null)
             {
@@ -85,10 +85,10 @@ namespace YTScrapper.Application.Services
                     .Where(s => s.Author == searchItemFilter.Author).ToList();
             }
 
-            return new List<YouTubeSearchItem>();
+            return new List<YouTubeModel>();
         }
 
-        public async Task UpdateSearchItem(YouTubeSearchItem searchItem)
+        public async Task UpdateSearchItem(YouTubeModel searchItem)
         {
             await _searchItemRepository.Update(searchItem);
         }

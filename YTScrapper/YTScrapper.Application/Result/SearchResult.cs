@@ -6,7 +6,7 @@ namespace YTScrapper.Application.Result
 {
     public class SearchResult
     {
-        public SuccessOrFailure<YouTubeSearchItem> Result { get; set; }
+        public SuccessOrFailure<YouTubeModel> Result { get; set; }
         public SearchStatusCode StatusCode { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace YTScrapper.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
             services.AddScoped<ISearchRunner, YouTubeSearchRunner>();
-            services.AddScoped<ISearchItemRepository, SearchItemRepository>();
+            services.AddScoped<ISearchItemRepository, YouTubeRepository>();
             services.AddScoped<IWebClientService, WebClientService>();
 
             return services;

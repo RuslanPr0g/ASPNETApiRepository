@@ -1,6 +1,6 @@
 ﻿namespace YTScrapper.Domain.Models
 {
-    public class YouTubeSearchItem
+    public class YouTubeModel
     {
         public int Id { get; set; }
         public string Url { get; set; }

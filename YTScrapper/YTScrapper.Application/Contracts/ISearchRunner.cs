@@ -8,6 +8,6 @@ namespace YTScrapper.Application.Contracts
 {
     public interface ISearchRunner
     {
-        Task<SuccessOrFailure<YouTubeSearchItem>> Run(string url, CancellationToken token = default);
+        Task<SuccessOrFailure<YouTubeModel>> Run(string url, CancellationToken token = default);
     }
 }
