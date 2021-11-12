@@ -131,7 +131,7 @@ namespace YTScrapper.Infrastructure.Runners
             var duration = GetFirstMatchFromRegexPattern(durationRegex, htmlSearchPage);
 
             if (searchItem.Title.IsEmpty() || searchItem.Description.IsEmpty() ||
-                searchItem.Author.IsEmpty() || searchItem.Duration.IsEmpty())
+                searchItem.Author.IsEmpty() || duration.IsEmpty())
             {
                 throw new YoutubeWrongVideoUrlException(searchUrl);
             }
