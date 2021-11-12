@@ -16,10 +16,12 @@ namespace YTScrapper.Infrastructure.Scrapers
         private const string LogFormat = "StatusCode: '{code}', scraper '{scraperName}' {scraperMessage} in {time}";
 
         private readonly ILogger<ISearchScrapper> _logger;
+        private readonly ISearchService _searchService;
 
-        public ScraperBase(ILogger<ISearchScrapper> logger)
+        public ScraperBase(ILogger<ISearchScrapper> logger, ISearchService searchService)
         {
             _logger = logger;
+            _searchService = searchService;
         }
 
         public async Task<ValueOrNull<SearchResult>> Scrap(SearchRequest request, CancellationToken token = default)
@@ -50,6 +52,7 @@ namespace YTScrapper.Infrastructure.Scrapers
             try
             {
                 var response = await ScrapVideoInner(request, token);
+                await _searchService.AddSearchItem(response.Item);
                 resultOrNull = response;
                 code = ScraperStatusCode.Success;
             }

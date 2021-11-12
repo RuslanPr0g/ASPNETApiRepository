@@ -2,6 +2,8 @@
 {
     public class SearchItem
     {
+        public int Id { get; set; }
+
         public string ImagePreviewUrl { get; set; }
         public string SearchItemUrl { get; set; }
 

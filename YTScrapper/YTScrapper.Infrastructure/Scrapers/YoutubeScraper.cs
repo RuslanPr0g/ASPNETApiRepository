@@ -1,8 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,7 +7,6 @@ using YTScrapper.Application.Contracts;
 using YTScrapper.Application.DTOs;
 using YTScrapper.Application.Exceptions;
 using YTScrapper.Domain.Models;
-using YTScrapper.Infrastructure.Services;
 
 namespace YTScrapper.Infrastructure.Scrapers
 {
@@ -19,7 +15,8 @@ namespace YTScrapper.Infrastructure.Scrapers
         private const string _websiteName = "YouTube";
         private readonly IWebClientService _clientProvider;
 
-        public YoutubeScraper(ILogger<YoutubeScraper> logger, IWebClientService clientProvider) : base(logger)
+        public YoutubeScraper(ILogger<YoutubeScraper> logger, IWebClientService clientProvider, ISearchService searchService)
+            : base(logger, searchService)
         {
             _clientProvider = clientProvider;
         }
@@ -38,7 +35,8 @@ namespace YTScrapper.Infrastructure.Scrapers
 
         private async Task<SearchItem> ScrapVideo(string searchUrl)
         {
-            if (searchUrl.Contains("www.youtube.com/watch?v=") is false)
+            if (searchUrl.Contains("www.youtube.com/watch?v=") is false &&
+                searchUrl.Contains("https://youtu.be") is false)
             {
                 throw new YoutubeWrongVideoUrlException(searchUrl);
             }

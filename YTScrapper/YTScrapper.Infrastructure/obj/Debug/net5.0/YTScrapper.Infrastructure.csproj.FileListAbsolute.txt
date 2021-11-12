@@ -17,3 +17,4 @@ C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Infrastruc
 C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Infrastructure\obj\Debug\net5.0\YTScrapper.Infrastructure.dll
 C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Infrastructure\obj\Debug\net5.0\ref\YTScrapper.Infrastructure.dll
 C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Infrastructure\obj\Debug\net5.0\YTScrapper.Infrastructure.pdb
+C:\Users\Administrator\Desktop\YoutubeParserApp\YTScrapper\YTScrapper.Infrastructure\bin\Debug\net5.0\SearchDB.db

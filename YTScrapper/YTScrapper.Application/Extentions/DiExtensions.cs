@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using YTScrapper.Application.Contracts;
 using YTScrapper.Application.Runners;
+using YTScrapper.Application.Services;
 
 namespace YTScrapper.Application.Extentions
 {
@@ -8,6 +10,7 @@ namespace YTScrapper.Application.Extentions
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddScoped<IScraperRunner, ScraperRunner>();
+            services.AddScoped<ISearchService, SearchService>();
 
             return services;
         }

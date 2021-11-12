@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using YTScrapper.Application.Contracts;
 using YTScrapper.Infrastructure.Config;
+using YTScrapper.Infrastructure.Repository;
 using YTScrapper.Infrastructure.Scrapers;
 using YTScrapper.Infrastructure.Services;
 
@@ -13,6 +14,7 @@ namespace YTScrapper.Infrastructure
         {
             services.AddScoped<ISearchScrapperCollector, SearchScraperCollector>();
             services.AddScoped<YoutubeScraper>();
+            services.AddScoped<ISearchItemRepository, SearchItemRepository>();
             services.AddScoped<IWebClientService, WebClientService>();
             services.AddScoped<DriverInitializer>();
             services.Configure<SeleniumConfig>(option =>
