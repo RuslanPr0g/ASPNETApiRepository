@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -74,8 +75,6 @@ namespace YTScrapper.Infrastructure.Runners
 
         private async Task<YouTubeModel> SearchVideoInner(string url, CancellationToken token)
         {
-            return await ScrapVideo(url);
-
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
                 ApiKey = _configuration.GetValue<string>("UserSecretGoogleAPI"),
@@ -83,12 +82,15 @@ namespace YTScrapper.Infrastructure.Runners
             });
 
             var searchListRequest = youtubeService.Search.List("snippet");
-            searchListRequest.Q = "Google";
+            searchListRequest.Q = url;
             searchListRequest.MaxResults = 50;
 
             var searchListResponse = await searchListRequest.ExecuteAsync(token);
 
-            return null;
+            return new YouTubeModel
+            {
+                Author = searchListResponse.Items.First().Snippet.ChannelTitle
+            };
         }
 
         private void LogRun(SearchResult searchResult, TimeSpan ranFor)
@@ -98,62 +100,6 @@ namespace YTScrapper.Infrastructure.Runners
             var codeMessage = searchResult.StatusCode.ToString("g");
 
             _logger.LogInformation(LogFormat, codeMessage, scraperName, codeMessage, time);
-        }
-
-        private async Task<YouTubeModel> ScrapVideo(string searchUrl)
-        {
-            if (searchUrl.Contains("www.youtube.com/watch?v=") is false &&
-                searchUrl.Contains("https://youtu.be") is false)
-            {
-                throw new YoutubeWrongVideoUrlException(searchUrl);
-            }
-
-            var searchItem = new YouTubeModel()
-            {
-                Url = searchUrl
-            };
-
-            using var client = await _clientProvider.Provide();
-
-            await _clientProvider.SetDefaultUserString(client);
-            var htmlSearchPage = client.DownloadString(searchUrl);
-
-            string titleRegex = @"""title"":\s*""([^""]+)"",";
-            searchItem.Title = GetFirstMatchFromRegexPattern(titleRegex, htmlSearchPage);
-
-            string descriptionRegex = @"""shortDescription"":\s*""([^""]+)"",";
-            searchItem.Description = GetFirstMatchFromRegexPattern(descriptionRegex, htmlSearchPage);
-
-            string authorRegex = @"""channelName"":\s*""([^""]+)"",";
-            searchItem.Author = GetFirstMatchFromRegexPattern(authorRegex, htmlSearchPage);
-
-            string durationRegex = @"""approxDurationMs"":\s*""([^""]+)"",";
-            var duration = GetFirstMatchFromRegexPattern(durationRegex, htmlSearchPage);
-
-            if (searchItem.Title.IsEmpty() || searchItem.Description.IsEmpty() ||
-                searchItem.Author.IsEmpty() || duration.IsEmpty())
-            {
-                throw new YoutubeWrongVideoUrlException(searchUrl);
-            }
-
-            var durationTimeSpan = TimeSpan.FromMilliseconds(Convert.ToDouble(duration));
-            searchItem.Duration = $"{durationTimeSpan.Hours}:{durationTimeSpan.Minutes}:{durationTimeSpan.Seconds}";
-
-            return searchItem;
-        }
-
-        private static string GetFirstMatchFromRegexPattern(string regex, string text)
-        {
-            Regex r = new(regex, RegexOptions.IgnoreCase);
-            Match m = r.Match(text);
-            if (!m.Success)
-            {
-                return string.Empty;
-            }
-            else
-            {
-                return m.Groups[1].Value;
-            }
         }
     }
 }
