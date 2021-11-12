@@ -6,13 +6,6 @@
 
   <ItemGroup>
     <None Remove="r14gcrpq.aig~" />
-    <None Remove="SearchDB.db" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="SearchDB.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>

@@ -9,7 +9,7 @@ namespace YTScrapper.Application.Contracts
     {
         Task<List<SearchItem>> GetAllSearchItems();
         Task<List<SearchItem>> GetSearchItemsByParameter(SearchItemFilter searchItemFilter);
-        Task AddSearchItem(SearchItem searchItem);
+        Task<int> AddSearchItem(SearchItem searchItem);
         Task UpdateSearchItem(SearchItem searchItem);
         Task DeleteSearchItem(SearchItem searchItem);
     }

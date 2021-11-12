@@ -16,9 +16,9 @@ namespace YTScrapper.Application.Services
             _searchItemRepository = searchItemRepository;
         }
 
-        public async Task AddSearchItem(SearchItem searchItem)
+        public async Task<int> AddSearchItem(SearchItem searchItem)
         {
-            await _searchItemRepository.Add(searchItem);
+            return await _searchItemRepository.Add(searchItem);
         }
 
         public async Task DeleteSearchItem(SearchItem searchItem)

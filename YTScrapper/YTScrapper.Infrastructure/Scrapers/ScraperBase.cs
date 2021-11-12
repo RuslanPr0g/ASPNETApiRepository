@@ -52,7 +52,8 @@ namespace YTScrapper.Infrastructure.Scrapers
             try
             {
                 var response = await ScrapVideoInner(request, token);
-                await _searchService.AddSearchItem(response.Item);
+                var id = await _searchService.AddSearchItem(response.Item);
+                response.Item.Id = id;
                 resultOrNull = response;
                 code = ScraperStatusCode.Success;
             }
