@@ -6,9 +6,9 @@ namespace YTScrapper.Application.Contracts
 {
     public interface ISearchItemRepository
     {
-        Task<List<SearchItem>> Get();
-        Task<int> Add(SearchItem response);
-        Task Update(SearchItem response);
-        Task Delete(SearchItem response);
+        Task<List<YouTubeSearchItem>> Get();
+        Task<int> Add(YouTubeSearchItem response);
+        Task Update(YouTubeSearchItem response);
+        Task Delete(YouTubeSearchItem response);
     }
 }

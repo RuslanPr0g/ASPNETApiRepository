@@ -19,7 +19,7 @@ namespace YTScrapper.Infrastructure.Repository
             _connectionString = configuration.GetConnectionString("SqlLiteDefault");
         }
 
-        public async Task<int> Add(SearchItem searchItem)
+        public async Task<int> Add(YouTubeSearchItem searchItem)
         {
             var sql = @"
 insert into searchitem 
@@ -29,8 +29,7 @@ values(@preview, @url, @title, @description, @author, @duration) RETURNING Id;";
             using IDbConnection connection = new SQLiteConnection(_connectionString);
             connection.Open();
             var output = await connection.QueryAsync<int>(sql, new {
-                preview = searchItem.ImagePreviewUrl,
-                url = searchItem.SearchItemUrl,
+                url = searchItem.Url,
                 title = searchItem.Title,
                 description = searchItem.Description,
                 author = searchItem.Author,
@@ -40,7 +39,7 @@ values(@preview, @url, @title, @description, @author, @duration) RETURNING Id;";
             return output.FirstOrDefault();
         }
 
-        public async Task Delete(SearchItem searchItem)
+        public async Task Delete(YouTubeSearchItem searchItem)
         {
             var sql = @"
 delete from searchitem
@@ -48,21 +47,21 @@ where id = @id;";
 
             using IDbConnection connection = new SQLiteConnection(_connectionString);
             connection.Open();
-            var output = await connection.QueryAsync<SearchItem>(sql, new
+            var output = await connection.QueryAsync<YouTubeSearchItem>(sql, new
             {
                 id = searchItem.Id,
             });
         }
 
-        public async Task<List<SearchItem>> Get()
+        public async Task<List<YouTubeSearchItem>> Get()
         {
             using IDbConnection connection = new SQLiteConnection(_connectionString);
             connection.Open();
-            var output = await connection.QueryAsync<SearchItem>(@"select * from searchitem;");
+            var output = await connection.QueryAsync<YouTubeSearchItem>(@"select * from searchitem;");
             return output.AsList();
         }
 
-        public async Task Update(SearchItem searchItem)
+        public async Task Update(YouTubeSearchItem searchItem)
         {
             var sql = @"
 UPDATE searchitem
@@ -71,11 +70,10 @@ WHERE Id = @id;";
 
             using IDbConnection connection = new SQLiteConnection(_connectionString);
             connection.Open();
-            var output = await connection.QueryAsync<SearchItem>(sql, new
+            var output = await connection.QueryAsync<YouTubeSearchItem>(sql, new
             {
                 id = searchItem.Id,
-                preview = searchItem.ImagePreviewUrl,
-                url = searchItem.SearchItemUrl,
+                url = searchItem.Url,
                 title = searchItem.Title,
                 description = searchItem.Description,
                 author = searchItem.Author,

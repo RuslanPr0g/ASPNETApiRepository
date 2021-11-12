@@ -1,6 +1,6 @@
 ﻿namespace YTScrapper.Application.Enums
 {
-    public enum ScraperStatusCode
+    public enum SearchStatusCode
     {
         Success = 0,
         HandledError = 1,

@@ -22,7 +22,7 @@ namespace YTScrapper
         {
             services
                 .AddApplication()
-                .AddInfrastructure(Configuration);
+                .AddInfrastructure();
 
             services.AddControllers();
 
