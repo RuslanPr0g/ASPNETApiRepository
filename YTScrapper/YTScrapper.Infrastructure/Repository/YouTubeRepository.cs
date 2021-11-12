@@ -29,7 +29,7 @@ values(@preview, @url, @title, @description, @author, @duration) RETURNING Id;";
             using IDbConnection connection = new SQLiteConnection(_connectionString);
             connection.Open();
             var output = await connection.QueryAsync<int>(sql, new {
-                preview = string.Empty,
+                preview = searchItem.ImagePreviewUrl,
                 url = searchItem.Url,
                 title = searchItem.Title,
                 description = searchItem.Description,
@@ -74,7 +74,7 @@ WHERE Id = @id;";
             var output = await connection.QueryAsync<YouTubeModel>(sql, new
             {
                 id = searchItem.Id,
-                preview = string.Empty,
+                preview = searchItem.ImagePreviewUrl,
                 url = searchItem.Url,
                 title = searchItem.Title,
                 description = searchItem.Description,

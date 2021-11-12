@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using YTScrapper.Application.Contracts;
+using YTScrapper.Application.DTOs;
 using YTScrapper.Application.Filters;
 using YTScrapper.Domain.Models;
 using YTScrapper.Shared.Models;
@@ -50,7 +51,7 @@ namespace YTScrapper.Application.Services
                 return searches.First(s => s.Url == url);
             }
 
-            var result = (await _scraperRunner.Run(url));
+            var result = (await _scraperRunner.Run(new SearchRunnerRequest { Url = url }));
 
             if (result.HasValue)
             {
