@@ -54,16 +54,18 @@ namespace YTScrapper.Application.Services
 
             if (result.HasValue)
             {
-                var id = await AddSearchItem(result.Value);
-                return SuccessOrFailure<YouTubeModel>.CreateValue(new YouTubeModel
+                var youtubeModel = new YouTubeModel
                 {
-                    Id = id,
                     Url = url,
                     Title = result.Value.Title,
                     Description = result.Value.Description,
                     Author = result.Value.Author,
                     Duration = result.Value.Duration,
-                });
+                };
+                var id = await AddSearchItem(youtubeModel);
+                youtubeModel.Id = id;
+
+                return SuccessOrFailure<YouTubeModel>.CreateValue(youtubeModel);
             }
             else
             {

@@ -23,7 +23,7 @@ namespace YTScrapper.Infrastructure.Repository
         {
             var sql = @"
 insert into searchitem 
-(""ImagePreviewUrl"", ""SearchItemUrl"", ""Title"", ""Description"", ""Author"", ""Duration"")
+(""ImagePreviewUrl"", ""Url"", ""Title"", ""Description"", ""Author"", ""Duration"")
 values(@preview, @url, @title, @description, @author, @duration) RETURNING Id;";
 
             using IDbConnection connection = new SQLiteConnection(_connectionString);
@@ -66,7 +66,7 @@ where id = @id;";
         {
             var sql = @"
 UPDATE searchitem
-SET ImagePreviewUrl = @preview, SearchItemUrl= @url, Title=@title, Description=@description, Author=@author, Duration=@duration
+SET ImagePreviewUrl = @preview, Url= @url, Title=@title, Description=@description, Author=@author, Duration=@duration
 WHERE Id = @id;";
 
             using IDbConnection connection = new SQLiteConnection(_connectionString);
