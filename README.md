@@ -14,7 +14,7 @@ You will get data about this YouTube video, e.g. the following: <br/>
 ]
 </code>
 </pre>
-Also, you can access already scrapped data by an id or an author.
+Also, you can access already stored data by an id or an author.
 ### Stack
 - Clean architecture
 - .NET5
