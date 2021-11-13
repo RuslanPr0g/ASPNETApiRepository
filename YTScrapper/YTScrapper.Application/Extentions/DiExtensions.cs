@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using YTScrapper.Application.Contracts;
-using YTScrapper.Application.Services;
+using YTSearch.Application.Contracts;
+using YTSearch.Application.Services;
 
-namespace YTScrapper.Application.Extentions
+namespace YTSearch.Application.Extentions
 {
     public static class DiExtensions
     {

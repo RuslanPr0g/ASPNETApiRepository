@@ -1,4 +1,4 @@
-﻿namespace YTScrapper.Application.Enums
+﻿namespace YTSearch.Application.Enums
 {
     public enum SearchStatusCode
     {

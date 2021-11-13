@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace YTScrapper.Shared.Extentions
+namespace YTSearch.Shared.Extentions
 {
     public static class GeneralExtentions
     {

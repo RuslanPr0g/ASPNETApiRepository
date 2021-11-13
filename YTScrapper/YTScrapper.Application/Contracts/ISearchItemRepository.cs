@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using YTScrapper.Domain.Models;
+using YTSearch.Domain.Models;
 
-namespace YTScrapper.Application.Contracts
+namespace YTSearch.Application.Contracts
 {
     public interface ISearchItemRepository
     {

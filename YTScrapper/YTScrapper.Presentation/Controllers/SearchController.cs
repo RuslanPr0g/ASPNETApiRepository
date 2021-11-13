@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using YTScrapper.Application.Contracts;
-using YTScrapper.Application.DTOs;
-using YTScrapper.Application.Filters;
-using YTScrapper.Domain.Models;
+using YTSearch.Application.Contracts;
+using YTSearch.Application.DTOs;
+using YTSearch.Application.Filters;
+using YTSearch.Domain.Models;
 
-namespace YTScrapper.Presentation.Controllers
+namespace YTSearch.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

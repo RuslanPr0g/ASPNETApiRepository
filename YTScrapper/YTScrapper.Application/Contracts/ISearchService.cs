@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using YTScrapper.Application.Filters;
-using YTScrapper.Domain.Models;
-using YTScrapper.Shared.Models;
+using YTSearch.Application.Filters;
+using YTSearch.Domain.Models;
+using YTSearch.Shared.Models;
 
-namespace YTScrapper.Application.Contracts
+namespace YTSearch.Application.Contracts
 {
     public interface ISearchService
     {

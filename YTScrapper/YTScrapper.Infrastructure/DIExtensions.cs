@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using YTScrapper.Application.Contracts;
-using YTScrapper.Infrastructure.Repository;
-using YTScrapper.Infrastructure.Runners;
-using YTScrapper.Infrastructure.Services;
+using YTSearch.Application.Contracts;
+using YTSearch.Infrastructure.Repository;
+using YTSearch.Infrastructure.Runners;
+using YTSearch.Infrastructure.Services;
 
-namespace YTScrapper.Infrastructure
+namespace YTSearch.Infrastructure
 {
     public static class DIExtensions
     {

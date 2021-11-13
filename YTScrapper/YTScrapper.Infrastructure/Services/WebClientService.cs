@@ -1,8 +1,8 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
-using YTScrapper.Application.Contracts;
+using YTSearch.Application.Contracts;
 
-namespace YTScrapper.Infrastructure.Services
+namespace YTSearch.Infrastructure.Services
 {
     public class WebClientService : IWebClientService
     {

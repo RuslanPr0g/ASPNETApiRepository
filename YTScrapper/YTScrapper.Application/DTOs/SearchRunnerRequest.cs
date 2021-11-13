@@ -1,4 +1,4 @@
-﻿namespace YTScrapper.Application.DTOs
+﻿namespace YTSearch.Application.DTOs
 {
     public class SearchRunnerRequest
     {

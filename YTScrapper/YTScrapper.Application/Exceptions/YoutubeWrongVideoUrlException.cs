@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YTScrapper.Application.Exceptions
+namespace YTSearch.Application.Exceptions
 {
     [Serializable]
     public class YoutubeWrongVideoUrlException : Exception

@@ -9,21 +9,21 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using YTScrapper.Application.Contracts;
-using YTScrapper.Application.DTOs;
-using YTScrapper.Application.Enums;
-using YTScrapper.Application.Exceptions;
-using YTScrapper.Application.Result;
-using YTScrapper.Domain.Models;
-using YTScrapper.Shared.Extentions;
-using YTScrapper.Shared.Helper;
-using YTScrapper.Shared.Models;
+using YTSearch.Application.Contracts;
+using YTSearch.Application.DTOs;
+using YTSearch.Application.Enums;
+using YTSearch.Application.Exceptions;
+using YTSearch.Application.Result;
+using YTSearch.Domain.Models;
+using YTSearch.Shared.Extentions;
+using YTSearch.Shared.Helper;
+using YTSearch.Shared.Models;
 
-namespace YTScrapper.Infrastructure.Runners
+namespace YTSearch.Infrastructure.Runners
 {
     public class YouTubeSearchRunner : ISearchRunner
     {
-        private const string LogFormat = "StatusCode: '{code}', scraper '{scraperName}' {scraperMessage} in {time}";
+        private const string LogFormat = "StatusCode: '{code}', search '{searchName}' {searchMessage} in {time}";
 
         private readonly IWebClientService _clientProvider;
         private readonly IConfiguration _configuration;
@@ -162,10 +162,10 @@ namespace YTScrapper.Infrastructure.Runners
         private void LogRun(SearchResult searchResult, TimeSpan ranFor)
         {
             var time = ranFor.ToString();
-            var scraperName = GetType().Name;
+            var searchName = GetType().Name;
             var codeMessage = searchResult.StatusCode.ToString("g");
 
-            _logger.LogInformation(LogFormat, codeMessage, scraperName, codeMessage, time);
+            _logger.LogInformation(LogFormat, codeMessage, searchName, codeMessage, time);
         }
     }
 }

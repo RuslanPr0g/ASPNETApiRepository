@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
 
-namespace YTScrapper.Application.Contracts
+namespace YTSearch.Application.Contracts
 {
     public interface IWebClientService
     {

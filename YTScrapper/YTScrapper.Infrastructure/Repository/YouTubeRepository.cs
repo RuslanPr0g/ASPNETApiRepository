@@ -5,10 +5,10 @@ using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Threading.Tasks;
-using YTScrapper.Application.Contracts;
-using YTScrapper.Domain.Models;
+using YTSearch.Application.Contracts;
+using YTSearch.Domain.Models;
 
-namespace YTScrapper.Infrastructure.Repository
+namespace YTSearch.Infrastructure.Repository
 {
     public class YouTubeRepository : ISearchItemRepository
     {

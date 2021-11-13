@@ -1,4 +1,4 @@
-﻿namespace YTScrapper.Shared.Helper
+﻿namespace YTSearch.Shared.Helper
 {
     public static class YouTubeHelper
     {

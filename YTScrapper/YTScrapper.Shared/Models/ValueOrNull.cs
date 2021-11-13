@@ -1,4 +1,4 @@
-﻿namespace YTScrapper.Shared.Models
+﻿namespace YTSearch.Shared.Models
 {
     public struct SuccessOrFailure<T>
     {

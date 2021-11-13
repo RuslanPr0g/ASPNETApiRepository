@@ -1,23 +1,23 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using YTScrapper.Application.Contracts;
-using YTScrapper.Application.DTOs;
-using YTScrapper.Application.Filters;
-using YTScrapper.Domain.Models;
-using YTScrapper.Shared.Models;
+using YTSearch.Application.Contracts;
+using YTSearch.Application.DTOs;
+using YTSearch.Application.Filters;
+using YTSearch.Domain.Models;
+using YTSearch.Shared.Models;
 
-namespace YTScrapper.Application.Services
+namespace YTSearch.Application.Services
 {
     public class SearchService : ISearchService
     {
         private readonly ISearchItemRepository _searchItemRepository;
-        private readonly ISearchRunner _scraperRunner;
+        private readonly ISearchRunner _searchRunner;
 
-        public SearchService(ISearchItemRepository searchItemRepository, ISearchRunner scraperRunner)
+        public SearchService(ISearchItemRepository searchItemRepository, ISearchRunner searchRunner)
         {
             _searchItemRepository = searchItemRepository;
-            _scraperRunner = scraperRunner;
+            _searchRunner = searchRunner;
         }
 
         public async Task<int> AddSearchItem(YouTubeModel searchItem)
@@ -51,7 +51,7 @@ namespace YTScrapper.Application.Services
                 return searches.First(s => s.Url == url);
             }
 
-            var result = (await _scraperRunner.Run(new SearchRunnerRequest { Url = url }));
+            var result = (await _searchRunner.Run(new SearchRunnerRequest { Url = url }));
 
             if (result.HasValue)
             {

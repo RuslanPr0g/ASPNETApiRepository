@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using YTScrapper.Application.Enums;
+using YTSearch.Application.Enums;
 
-namespace YTScrapper.Application.DTOs
+namespace YTSearch.Application.DTOs
 {
     public class SearchRequest
     {

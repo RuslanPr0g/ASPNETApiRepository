@@ -1,8 +1,8 @@
-﻿using YTScrapper.Application.Enums;
-using YTScrapper.Domain.Models;
-using YTScrapper.Shared.Models;
+﻿using YTSearch.Application.Enums;
+using YTSearch.Domain.Models;
+using YTSearch.Shared.Models;
 
-namespace YTScrapper.Application.Result
+namespace YTSearch.Application.Result
 {
     public class SearchResult
     {

@@ -1,4 +1,4 @@
-﻿namespace YTScrapper.Domain.Models
+﻿namespace YTSearch.Domain.Models
 {
     public class YouTubeModel
     {

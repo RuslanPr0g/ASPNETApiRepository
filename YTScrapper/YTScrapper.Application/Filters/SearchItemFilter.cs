@@ -1,4 +1,4 @@
-﻿namespace YTScrapper.Application.Filters
+﻿namespace YTSearch.Application.Filters
 {
     public class SearchItemFilter
     {
