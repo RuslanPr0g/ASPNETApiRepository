@@ -16,6 +16,7 @@ using YTScrapper.Application.Exceptions;
 using YTScrapper.Application.Result;
 using YTScrapper.Domain.Models;
 using YTScrapper.Shared.Extentions;
+using YTScrapper.Shared.Helper;
 using YTScrapper.Shared.Models;
 
 namespace YTScrapper.Infrastructure.Runners
@@ -77,7 +78,7 @@ namespace YTScrapper.Infrastructure.Runners
 
         private async Task<YouTubeModel> SearchVideoInner(string url, CancellationToken token)
         {
-            var videoId = GetYouTubeVideoIdFromUrl(url);
+            var videoId = YouTubeHelper.GetYouTubeVideoIdFromUrl(url);
 
             if (videoId.IsEmpty())
             {
@@ -124,9 +125,9 @@ namespace YTScrapper.Infrastructure.Runners
                 return null;
             }
 
-            var hours = GetNMatchFromRegexPattern(@"PT(\d+H)?(\d+M)?(\d+S)?", duration, 1);
-            var minutes = GetNMatchFromRegexPattern(@"PT(\d+H)?(\d+M)?(\d+S)?", duration, 2);
-            var seconds = GetNMatchFromRegexPattern(@"PT(\d+H)?(\d+M)?(\d+S)?", duration, 3);
+            var hours = RegexHelper.GetNMatchFromRegexPattern(@"PT(\d+H)?(\d+M)?(\d+S)?", duration, 1);
+            var minutes = RegexHelper.GetNMatchFromRegexPattern(@"PT(\d+H)?(\d+M)?(\d+S)?", duration, 2);
+            var seconds = RegexHelper.GetNMatchFromRegexPattern(@"PT(\d+H)?(\d+M)?(\d+S)?", duration, 3);
 
             if (duration.Contains("H"))
             {
@@ -156,36 +157,6 @@ namespace YTScrapper.Infrastructure.Runners
             }
 
             return $"{hours}:{minutes}:{seconds}";
-        }
-
-        private static string GetYouTubeVideoIdFromUrl(string url)
-        {
-            string regex = string.Empty;
-
-            if (url.Contains("https://www.youtube.com/watch?v="))
-            {
-                regex = @"^https:\/\/[^\/]+\/watch\?v=([^&^\n]+)";
-            }
-            else if (url.Contains("https://youtu.be/"))
-            {
-                regex = @"^https:\/\/[^\/]+\/([^&^\n]+)";
-            }
-
-            return GetNMatchFromRegexPattern(regex, url, 1);
-        }
-
-        private static string GetNMatchFromRegexPattern(string regex, string text, int match)
-        {
-            Regex r = new(regex, RegexOptions.IgnoreCase);
-            Match m = r.Match(text);
-            if (!m.Success || match > m.Groups.Count - 1)
-            {
-                return null;
-            }
-            else
-            {
-                return m.Groups[match].Value;
-            }
         }
 
         private void LogRun(SearchResult searchResult, TimeSpan ranFor)
