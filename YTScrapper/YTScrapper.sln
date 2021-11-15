@@ -5,13 +5,17 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YTScrapper.Presentation", "YTScrapper.Presentation\YTScrapper.Presentation.csproj", "{BB4E1C9C-EC22-429C-B3A8-FFDDADE9E175}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTScrapper.Shared", "YTScrapper.Shared\YTScrapper.Shared.csproj", "{9FBFBD7E-DB18-4963-88FB-9AAF841C424A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YTScrapper.Shared", "YTScrapper.Shared\YTScrapper.Shared.csproj", "{9FBFBD7E-DB18-4963-88FB-9AAF841C424A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTScrapper.Application", "YTScrapper.Application\YTScrapper.Application.csproj", "{1AEC8EC4-ECFF-4526-83E7-3297BC4D6E8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YTScrapper.Application", "YTScrapper.Application\YTScrapper.Application.csproj", "{1AEC8EC4-ECFF-4526-83E7-3297BC4D6E8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTScrapper.Domain", "YTScrapper.Domain\YTScrapper.Domain.csproj", "{A9CD7576-1FE1-4C9B-A4A6-B34C3C0FC217}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YTScrapper.Domain", "YTScrapper.Domain\YTScrapper.Domain.csproj", "{A9CD7576-1FE1-4C9B-A4A6-B34C3C0FC217}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YTScrapper.Infrastructure", "YTScrapper.Infrastructure\YTScrapper.Infrastructure.csproj", "{67532811-90CA-48D3-95B8-C78933BB2522}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YTScrapper.Infrastructure", "YTScrapper.Infrastructure\YTScrapper.Infrastructure.csproj", "{67532811-90CA-48D3-95B8-C78933BB2522}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TRYING STUFF", "TRYING STUFF", "{CE4969B9-7FF7-4F95-B0BF-0A0EDE98054E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accum", "Accum\Accum.csproj", "{DDD8FDD9-F1C6-4412-BB88-C21EEDD3A94E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +43,16 @@ Global
 		{67532811-90CA-48D3-95B8-C78933BB2522}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67532811-90CA-48D3-95B8-C78933BB2522}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67532811-90CA-48D3-95B8-C78933BB2522}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDD8FDD9-F1C6-4412-BB88-C21EEDD3A94E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDD8FDD9-F1C6-4412-BB88-C21EEDD3A94E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDD8FDD9-F1C6-4412-BB88-C21EEDD3A94E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDD8FDD9-F1C6-4412-BB88-C21EEDD3A94E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DDD8FDD9-F1C6-4412-BB88-C21EEDD3A94E} = {CE4969B9-7FF7-4F95-B0BF-0A0EDE98054E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF5C40A5-13EF-4DDF-B706-01001C3E57B7}
