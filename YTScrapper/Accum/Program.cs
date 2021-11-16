@@ -20,25 +20,16 @@ namespace Accum
             Console.WriteLine($"Null: {Accumulation(null)}");
         }
 
-        private static string Accumulation(string text) =>
-            text
-              ?.ToLower()
-              .ToCharArray()
-              .Select((x, i) => $"{ x.Repeat(i + 1) }").ToArray()
-              .JoinToString("-")
-              .ToTitleCase()
-              ?? string.Empty;
-    }
+        private static string Accumulation(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return string.Empty;
 
-    static class Extentions
-    {
-        public static string ToTitleCase(this string s) =>
-            CultureInfo.InvariantCulture.TextInfo.ToTitleCase(s);
+            return string.Join("-",
+                text
+                    .ToLower()
+                    .Select((x, i) => $"{char.ToUpper(x)}{new string(x, i)}"));
+        }
 
-        public static string Repeat(this char c, int count) =>
-            new(c, count);
-
-        public static string JoinToString(this string[] s, string separator) =>
-            string.Join(separator, s);
     }
 }
