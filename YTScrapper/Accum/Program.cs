@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 
 namespace Accum
 {
@@ -9,36 +8,37 @@ namespace Accum
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Accumulation("fDSGdg"));
+            Console.WriteLine($"fDSGdg: {Accumulation("fDSGdg")}");
+            Console.WriteLine($"Fffffasdfg: {Accumulation("Fffffasdfg")}");
+            Console.WriteLine($"fffFDFGASfds: {Accumulation("fffFDFGASfds")}");
+            Console.WriteLine($"dfaFFFfasd: {Accumulation("dfaFFFfasd")}");
+            Console.WriteLine($"aa: {Accumulation("aa")}");
+            Console.WriteLine($"AA: {Accumulation("AA")}");
+            Console.WriteLine($"aA: {Accumulation("aA")}");
+            Console.WriteLine($"Aa: {Accumulation("Aa")}");
+            Console.WriteLine($"Empty: {Accumulation(string.Empty)}");
+            Console.WriteLine($"Null: {Accumulation(null)}");
         }
 
-        private static string Accumulation(string text)
-        {
-            if (string.IsNullOrWhiteSpace(text))
-            {
-                return text;
-            }
-
-            StringBuilder stringBuilder = new();
-
-            var i = 0;
-            text.ToList().ForEach((c) =>
-            {
-                stringBuilder.Append(new string(c, i + 1));
-
-                if (i < text.Length - 1)
-                    stringBuilder.Append('-');
-
-                i++;
-            });
-
-            return stringBuilder.ToString().ToTitleCase();
-        }
+        private static string Accumulation(string text) =>
+            text
+              ?.ToLower()
+              .ToCharArray()
+              .Select((x, i) => $"{ x.Repeat(i + 1) }").ToArray()
+              .JoinToString("-")
+              .ToTitleCase() 
+              ?? string.Empty;
     }
 
     static class Extentions
     {
         public static string ToTitleCase(this string s) =>
-            CultureInfo.InvariantCulture.TextInfo.ToTitleCase(s.ToLower());
+            CultureInfo.InvariantCulture.TextInfo.ToTitleCase(s);
+
+        public static string Repeat(this char c, int count) =>
+            new(c, count);
+
+        public static string JoinToString(this string[] s, string separator) =>
+            string.Join(separator, s);
     }
 }
