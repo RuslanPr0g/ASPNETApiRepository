@@ -26,7 +26,7 @@ namespace Accum
               .ToCharArray()
               .Select((x, i) => $"{ x.Repeat(i + 1) }").ToArray()
               .JoinToString("-")
-              .ToTitleCase() 
+              .ToTitleCase()
               ?? string.Empty;
     }
 
