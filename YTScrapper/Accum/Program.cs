@@ -29,6 +29,5 @@ namespace Accum
                     .ToLower()
                     .Select((x, i) => $"{char.ToUpper(x)}{new string(x, i)}"));
         }
-
     }
 }
