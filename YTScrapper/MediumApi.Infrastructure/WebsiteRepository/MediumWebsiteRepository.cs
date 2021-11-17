@@ -1,38 +1,89 @@
-﻿using MediumApi.Application.Contract;
-using MediumApi.Domain.Global;
+﻿using Dapper;
+using MediumApi.Application.Contract;
 using MediumApi.Domain.Models;
-using Newtonsoft.Json;
+using Microsoft.Data.Sqlite;
+using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
-using System.IO;
-using System.Net.Http;
-using System.Threading;
+using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
 
-namespace MediumApi.Infrastructure.WebsiteGetter
+namespace MediumApi.Infrastructure.WebsiteRepository
 {
     public class MediumWebsiteRepository : IMediumWebsiteRepository
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly string _connectionString;
 
-        public MediumWebsiteRepository(IHttpClientFactory httpClientFactory)
+        public MediumWebsiteRepository(IConfiguration configuration)
         {
-            _httpClientFactory = httpClientFactory;
+            _connectionString = configuration.GetConnectionString("SqlLiteDefault");
         }
 
-        public async Task<List<Post>> GetPostsByAuthorUsername(string username, CancellationToken cts = default)
+        public async Task<int> Add(Post post)
         {
-            var httpClient = _httpClientFactory.CreateClient(MediumConstants.Name);
-            using var httpResponse = await httpClient.GetAsync(username, cts);
+            var sql = @"
+insert into post 
+(""Link"", ""Title"", ""Author"", ""Description"", ""Content"", ""Thumbnail"", ""PubDate"")
+values(@link, @title, @author, @description, @content, @thumbnail, @pubdate) RETURNING Id;";
 
-            if (!httpResponse.IsSuccessStatusCode)
-                return new();
+            using IDbConnection connection = new SqliteConnection(_connectionString);
+            connection.Open();
+            var output = await connection.QueryAsync<int>(sql, new
+            {
+                link = post.Link,
+                title = post.Title,
+                author = post.Author,
+                description = post.Description,
+                content = post.Content,
+                thumbnail = post.Thumbnail,
+                pubdate = post.PubDate,
+            });
 
-            using var sr = new StreamReader(await httpResponse.Content.ReadAsStreamAsync(cts));
+            return output.FirstOrDefault();
+        }
 
-            // 4) Convert RSS data to JSON one
+        public async Task Delete(Post post)
+        {
+            var sql = @"
+delete from post
+where id = @id;";
 
-            using var jtr = new JsonTextReader(sr);
-            return new JsonSerializer().Deserialize<List<Post>>(jtr) ?? new();
+            using IDbConnection connection = new SqliteConnection(_connectionString);
+            connection.Open();
+            var output = await connection.QueryAsync<Post>(sql, new
+            {
+                id = post.Id,
+            });
+        }
+
+        public async Task<List<Post>> Get()
+        {
+            using IDbConnection connection = new SqliteConnection(_connectionString);
+            connection.Open();
+            var output = await connection.QueryAsync<Post>(@"select * from post;");
+            return output.AsList();
+        }
+
+        public async Task Update(Post post)
+        {
+            var sql = @"
+UPDATE post
+SET Link = @link, Title= @title, Author=@author, Description=@description, Author=@content, Thumbnail=@thumbnail, PubDate=@pubdate
+WHERE Id = @id;";
+
+            using IDbConnection connection = new SqliteConnection(_connectionString);
+            connection.Open();
+            var output = await connection.QueryAsync<Post>(sql, new
+            {
+                id = post.Id,
+                link = post.Link,
+                title = post.Title,
+                author = post.Author,
+                description = post.Description,
+                content = post.Content,
+                thumbnail = post.Thumbnail,
+                pubdate = post.PubDate,
+            });
         }
     }
 }
