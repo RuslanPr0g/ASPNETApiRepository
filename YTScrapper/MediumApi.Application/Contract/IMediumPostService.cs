@@ -5,7 +5,7 @@ using YTSearch.Shared.Models;
 
 namespace MediumApi.Application.Contract
 {
-    public interface IPostService
+    public interface IMediumPostService
     {
         Task<SuccessOrFailure<Post>> GetPost(string url, CancellationToken cancellationToken);
     }

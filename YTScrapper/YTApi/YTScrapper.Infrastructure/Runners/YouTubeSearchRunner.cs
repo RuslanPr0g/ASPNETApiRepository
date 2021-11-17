@@ -118,7 +118,7 @@ namespace YTSearch.Infrastructure.Runners
         }
 
         // PT1H3M56S -> 01:03:56
-        private string GetDurationFromYouTubeForamt(string duration)
+        private static string GetDurationFromYouTubeForamt(string duration)
         {
             if (duration.IsEmpty())
             {

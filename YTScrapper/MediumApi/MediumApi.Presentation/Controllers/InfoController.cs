@@ -8,9 +8,9 @@ namespace MediumApi.Presentation.Controllers
     [ApiController]
     public class InfoController : ControllerBase
     {
-        private readonly IPostService _mediumService;
+        private readonly IMediumPostService _mediumService;
 
-        public InfoController(IPostService mediumService)
+        public InfoController(IMediumPostService mediumService)
         {
             _mediumService = mediumService;
         }

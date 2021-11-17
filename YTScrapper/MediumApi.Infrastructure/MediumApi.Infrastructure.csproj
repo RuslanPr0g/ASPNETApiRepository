@@ -4,4 +4,19 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="WebsiteRepository\MediumWebsiteGetter.cs~RF1c2d44a.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MediumApi.Application\MediumApi.Application.csproj" />
+    <ProjectReference Include="..\MediumApi.Domain\MediumApi.Domain.csproj" />
+    <ProjectReference Include="..\YTApi\YTScrapper.Shared\YTScrapper.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
