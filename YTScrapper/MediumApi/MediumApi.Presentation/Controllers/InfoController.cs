@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediumApi.Application.Contract;
+using MediumApi.Application.Request;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MediumApi.Presentation.Controllers
 {
@@ -6,11 +8,22 @@ namespace MediumApi.Presentation.Controllers
     [ApiController]
     public class InfoController : ControllerBase
     {
-        [HttpGet("post")]
-        public async Task<IActionResult> Get()
-        {
+        private readonly IPostService _mediumService;
 
-            return Ok();
+        public InfoController(IPostService mediumService)
+        {
+            _mediumService = mediumService;
+        }
+
+        [HttpPost("post")]
+        public async Task<IActionResult> Get([FromBody] PostInfoRequest postInfoRequest, CancellationToken cancellationToken)
+        {
+            var postValue = await _mediumService.GetPost(postInfoRequest.Url, cancellationToken);
+
+            if (postValue.HasValue)
+                return Ok(postValue.Value);
+            else
+                return BadRequest(postValue.NullMessage);
         }
     }
 }

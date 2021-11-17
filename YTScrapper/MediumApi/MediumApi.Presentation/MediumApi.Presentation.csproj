@@ -4,14 +4,18 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>e7c56a96-e283-4b37-9f33-bdfd49e09522</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\..\MediumApi.Application\MediumApi.Application.csproj" />
+    <ProjectReference Include="..\..\MediumApi.Domain\MediumApi.Domain.csproj" />
+    <ProjectReference Include="..\..\YTApi\YTScrapper.Shared\YTScrapper.Shared.csproj" />
   </ItemGroup>
 
 </Project>
