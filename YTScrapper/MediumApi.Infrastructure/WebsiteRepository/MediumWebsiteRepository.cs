@@ -19,7 +19,7 @@ namespace MediumApi.Infrastructure.WebsiteRepository
             _connectionString = configuration.GetConnectionString("SqlLiteDefault");
         }
 
-        public async Task<int> Add(Post post)
+        public async Task<int> AddPost(Post post)
         {
             var sql = @"
 insert into post 
@@ -39,10 +39,15 @@ values(@link, @title, @author, @description, @content, @thumbnail, @pubdate) RET
                 pubdate = post.PubDate,
             });
 
+            foreach (var category in post.Categories)
+            {
+                await AddCategory(category);
+            }
+
             return output.FirstOrDefault();
         }
 
-        public async Task Delete(Post post)
+        public async Task DeletePost(Post post)
         {
             var sql = @"
 delete from post
@@ -56,7 +61,7 @@ where id = @id;";
             });
         }
 
-        public async Task<List<Post>> Get()
+        public async Task<List<Post>> GetPosts()
         {
             var sql = @"
 SELECT p.*, c.*
@@ -77,7 +82,7 @@ LEFT JOIN category c ON c.PostId = p.Id; ";
             return output.AsList();
         }
 
-        public async Task Update(Post post)
+        public async Task UpdatePost(Post post)
         {
             var sql = @"
 UPDATE post
@@ -97,6 +102,24 @@ WHERE Id = @id;";
                 thumbnail = post.Thumbnail,
                 pubdate = post.PubDate,
             });
+        }
+
+        public async Task<int> AddCategory(Category category)
+        {
+            var sql = @"
+insert into category 
+(""PostId"", ""Content"")
+values(@postId, @content) RETURNING Id;";
+
+            using IDbConnection connection = new SqliteConnection(_connectionString);
+            connection.Open();
+            var output = await connection.QueryAsync<int>(sql, new
+            {
+                postId = category.PostId,
+                content = category.Content,
+            });
+
+            return output.FirstOrDefault();
         }
     }
 }

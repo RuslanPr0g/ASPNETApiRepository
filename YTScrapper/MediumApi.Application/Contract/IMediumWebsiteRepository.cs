@@ -6,9 +6,9 @@ namespace MediumApi.Application.Contract
 {
     public interface IMediumWebsiteRepository
     {
-        Task<List<Post>> Get();
-        Task<int> Add(Post post);
-        Task Update(Post post);
-        Task Delete(Post post);
+        Task<List<Post>> GetPosts();
+        Task<int> AddPost(Post post);
+        Task UpdatePost(Post post);
+        Task DeletePost(Post post);
     }
 }

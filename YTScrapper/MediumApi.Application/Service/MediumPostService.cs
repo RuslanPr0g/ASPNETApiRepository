@@ -24,7 +24,7 @@ namespace MediumApi.Application.Service
 
         public async Task<SuccessOrFailure<Post>> GetPost(string url, CancellationToken cancellationToken)
         {
-            var searches = await _mediumWebsiteRepository.Get();
+            var searches = await _mediumWebsiteRepository.GetPosts();
 
             if (searches.Any(s => s.Link == url))
             {
@@ -40,7 +40,7 @@ namespace MediumApi.Application.Service
             if (posts?.Count > 0 && post is not null)
             {
                 post.Link = url;
-                await _mediumWebsiteRepository.Add(post);
+                await _mediumWebsiteRepository.AddPost(post);
 
                 return post;
             }
