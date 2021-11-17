@@ -16,7 +16,7 @@ builder.Services.AddScoped<IMediumWebsiteRepository, MediumWebsiteRepository>();
 
 builder.Services.AddHttpClient(MediumConstants.Name, client =>
 {
-    client.BaseAddress = new Uri("https://medium.com/feed/");
+    client.BaseAddress = new Uri("https://api.rss2json.com/v1/api.json");
     client.DefaultRequestHeaders.Add("Accept", "application/json");
     client.DefaultRequestHeaders.Add("User-Agent", "MediumApplication");
 }).AddTransientHttpErrorPolicy(policyBuilder =>

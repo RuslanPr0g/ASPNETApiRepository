@@ -1,10 +1,11 @@
 ﻿using MediumApi.Application.Contract;
+using MediumApi.Application.Response;
 using MediumApi.Domain.Global;
 using MediumApi.Domain.Models;
-using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.IO;
+using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,18 +22,35 @@ namespace MediumApi.Infrastructure.WebsiteGetter
 
         public async Task<List<Post>> GetPostsByAuthorUsername(string username, CancellationToken cts = default)
         {
+            var result = await GetRssJsonResponseAsync(username, cts);
+            return result.Items.Select(p => new Post
+            {
+                Id = p.Id,
+                Link = p.Link,
+                Title = p.Title,
+                Author = p.Author,
+                Description = p.Description,
+                Content = p.Content,
+                Thumbnail = p.Thumbnail,
+                PubDate = p.PubDate,
+                Categories = p.Categories.Select(c => new Category
+                {
+                    Id = -1,
+                    PostId = p.Id,
+                    Content = c
+                }).ToList()
+            }).ToList();
+        }
+
+        private async Task<RssJsonResponse> GetRssJsonResponseAsync(string username, CancellationToken cts = default)
+        {
             var httpClient = _httpClientFactory.CreateClient(MediumConstants.Name);
-            using var httpResponse = await httpClient.GetAsync(username, cts);
+            using var httpResponse = await httpClient.GetAsync($"?rss_url=https://medium.com/feed/{username}", cts);
 
             if (!httpResponse.IsSuccessStatusCode)
                 return new();
 
-            using var sr = new StreamReader(await httpResponse.Content.ReadAsStreamAsync(cts));
-
-            // 4) Convert RSS data to JSON one
-
-            using var jtr = new JsonTextReader(sr);
-            return new JsonSerializer().Deserialize<List<Post>>(jtr) ?? new();
+            return await httpResponse.Content.ReadFromJsonAsync<RssJsonResponse>(cancellationToken: cts);
         }
     }
 }
