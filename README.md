@@ -22,4 +22,28 @@ Also, you can access already stored data by an id or an author.
 
 # MediumApi
 ### Start with
-...
+Enter any URL which leads to Medium post, e.g. https://medium.com/young-coder/7-of-my-favorite-little-javascript-tricks-4f2a1cfe68b4 <br/>
+You will get data about this Meduim post, e.g. the following: <br/>
+<pre>
+<code>
+[
+  {
+    "link": "...",
+    "title": "...",
+    "author": "...",
+    "description": "...",
+    "content": "...",
+    "thumbnail": "...",
+    "pubDate": "...",
+    "categories": [
+      ...
+    ]
+  }
+]
+</code>
+</pre>
+Also, you can access already stored data by link or an author.
+### Stack
+- Clean architecture
+- .NET6
+- SqlLite
