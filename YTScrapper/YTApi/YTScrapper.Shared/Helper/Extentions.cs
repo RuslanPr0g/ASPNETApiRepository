@@ -8,18 +8,18 @@ namespace YTSearch.Shared.Helper
         public static string GetYouTubeVideoIdFromUrl(this string url)
         {
             string videoId = string.Empty;
-            
+
             var uri = new Uri(url);
 
             var queryCollection = HttpUtility.ParseQueryString(uri.Query);
 
             if (url.Contains("https://www.youtube.com/watch?v="))
             {
-                videoId = queryCollection.Get("v");
+                videoId = queryCollection.Get("v").Trim('/');
             }
             else if (url.Contains("https://youtu.be/"))
             {
-                videoId = uri.Segments[1];
+                videoId = uri.Segments[1].Trim('/');
             }
 
             return videoId;

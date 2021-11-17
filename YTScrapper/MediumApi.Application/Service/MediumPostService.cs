@@ -31,8 +31,7 @@ namespace MediumApi.Application.Service
                 return repoPosts.First(s => s.Link == url);
             }
 
-            var username = RegexHelper.GetNMatchFromRegexPattern(@"^https:\/\/medium.com\/([^\/]+)", url, 1);
-            // TODO: fix url matching with new Url()
+            var username = url.GetMediumUsernameFromUrl();
 
             var calledPosts = await _mediumWebsiteCaller.GetPostsByAuthorUsername(username, cancellationToken);
 
