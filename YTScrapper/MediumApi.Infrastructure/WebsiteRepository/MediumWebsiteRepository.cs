@@ -58,9 +58,22 @@ where id = @id;";
 
         public async Task<List<Post>> Get()
         {
+            var sql = @"
+SELECT p.*, c.*
+FROM post p
+LEFT JOIN category c ON c.PostId = p.Id; ";
             using IDbConnection connection = new SqliteConnection(_connectionString);
             connection.Open();
-            var output = await connection.QueryAsync<Post>(@"select * from post;");
+            var output = await connection.QueryAsync<Post>(sql);
+
+            connection.Query<Post, Category, Post>(sql, (p, c) =>
+            {
+                p.Categories ??= new List<Category>();
+                p.Categories.Add(c);
+                return p;
+            }).AsQueryable();
+            // splitOn: "Id" - perhaps should be added
+
             return output.AsList();
         }
 
