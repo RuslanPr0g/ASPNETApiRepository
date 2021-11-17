@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D0Pqka8Q51jxl0dHOch0tXCrvi51jV33q/gjcPrUsEcDjvLIH3nKpubPqrTCw5i7cQjnjBCEsE/gJj4i9k9cbg==",
+  "dgSpecHash": "LGWKu/yq0A0Opya/xZnHB27h7qIhvkDNpbAT106YUZGI9+cZcafaHijky84Xvgh+9EUnxJjNOKW1FPBMJ4nCxw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\YoutubeParserApp\\YTScrapper\\YTScrapper.Application\\YTScrapper.Application.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\ApiApps\\YTScrapper\\YTScrapper.Application\\YTScrapper.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
   ],

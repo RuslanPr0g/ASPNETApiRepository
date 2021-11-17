@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uFaNPIXWfEGPIQUL4Uqlv/Fy9FxVMirBOMZs+COYH5vfUQdBGEO5oDY5uOLgxW719MmRYC83p8fQQXZGrZ7hFA==",
+  "dgSpecHash": "W5Mq/ROj65d2YIVuoDWGeZjPKEkczTNABuxdUNO0vh1bJ8WqfHx/vMTL1F5Q8L3GVL2Rn2IGJOM3Yk65QwoGdA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\YoutubeParserApp\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Desktop\\ApiApps\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

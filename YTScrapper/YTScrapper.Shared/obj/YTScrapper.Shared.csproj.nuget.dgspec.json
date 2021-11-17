@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\Desktop\\YoutubeParserApp\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj": {}
+    "C:\\Users\\Administrator\\Desktop\\ApiApps\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\Desktop\\YoutubeParserApp\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj": {
+    "C:\\Users\\Administrator\\Desktop\\ApiApps\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\YoutubeParserApp\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\ApiApps\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj",
         "projectName": "YTScrapper.Shared",
-        "projectPath": "C:\\Users\\Administrator\\Desktop\\YoutubeParserApp\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Desktop\\ApiApps\\YTScrapper\\YTScrapper.Shared\\YTScrapper.Shared.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Desktop\\YoutubeParserApp\\YTScrapper\\YTScrapper.Shared\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Desktop\\ApiApps\\YTScrapper\\YTScrapper.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
