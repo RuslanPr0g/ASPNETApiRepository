@@ -19,3 +19,7 @@ Also, you can access already stored data by an id or an author.
 - Clean architecture
 - .NET5
 - SqlLite
+
+# MediumApi
+### Start with
+...
