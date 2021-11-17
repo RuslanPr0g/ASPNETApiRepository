@@ -78,7 +78,7 @@ namespace YTSearch.Infrastructure.Runners
 
         private async Task<YouTubeModel> SearchVideoInner(string url, CancellationToken token)
         {
-            var videoId = YouTubeHelper.GetYouTubeVideoIdFromUrl(url);
+            var videoId = url.GetYouTubeVideoIdFromUrl();
 
             if (videoId.IsEmpty())
             {
