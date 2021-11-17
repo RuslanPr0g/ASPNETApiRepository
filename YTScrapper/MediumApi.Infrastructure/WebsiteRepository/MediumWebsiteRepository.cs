@@ -76,8 +76,7 @@ LEFT JOIN category c ON c.PostId = p.Id; ";
                 p.Categories ??= new List<Category>();
                 p.Categories.Add(c);
                 return p;
-            }).AsQueryable();
-            // splitOn: "Id" - perhaps should be added
+            }, splitOn: "Id").AsQueryable();
 
             return output.AsList();
         }

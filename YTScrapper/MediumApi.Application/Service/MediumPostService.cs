@@ -24,20 +24,21 @@ namespace MediumApi.Application.Service
 
         public async Task<SuccessOrFailure<Post>> GetPost(string url, CancellationToken cancellationToken)
         {
-            var searches = await _mediumWebsiteRepository.GetPosts();
+            var repoPosts = await _mediumWebsiteRepository.GetPosts();
 
-            if (searches.Any(s => s.Link == url))
+            if (repoPosts.Any(s => s.Link == url))
             {
-                return searches.First(s => s.Link == url);
+                return repoPosts.First(s => s.Link == url);
             }
 
             var username = RegexHelper.GetNMatchFromRegexPattern(@"^https:\/\/medium.com\/([^\/]+)", url, 1);
+            // TODO: fix url matching with new Url()
 
-            var posts = await _mediumWebsiteCaller.GetPostsByAuthorUsername(username, cancellationToken);
+            var calledPosts = await _mediumWebsiteCaller.GetPostsByAuthorUsername(username, cancellationToken);
 
-            var post = posts.FirstOrDefault(p => p.Link.Contains(url));
+            var post = calledPosts.FirstOrDefault(p => p.Link.Contains(url));
 
-            if (posts?.Count > 0 && post is not null)
+            if (calledPosts?.Count > 0 && post is not null)
             {
                 post.Link = url;
                 await _mediumWebsiteRepository.AddPost(post);

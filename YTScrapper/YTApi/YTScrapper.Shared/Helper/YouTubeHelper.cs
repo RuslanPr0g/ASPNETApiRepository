@@ -6,6 +6,8 @@
         {
             string regex = string.Empty;
 
+            // TODO: fix url matching with new Url()
+
             if (url.Contains("https://www.youtube.com/watch?v="))
             {
                 regex = @"^https:\/\/[^\/]+\/watch\?v=([^&^\n]+)";
