@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MediumApi.Domain\MediumApi.Domain.csproj" />
-    <ProjectReference Include="..\YTApi\YTScrapper.Shared\YTScrapper.Shared.csproj" />
   </ItemGroup>
 
 </Project>

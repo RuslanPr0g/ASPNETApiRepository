@@ -1,7 +1,7 @@
-﻿using MediumApi.Domain.Models;
+﻿using MediumApi.Application.Model;
+using MediumApi.Domain.Models;
 using System.Threading;
 using System.Threading.Tasks;
-using YTSearch.Shared.Models;
 
 namespace MediumApi.Application.Contract
 {

@@ -16,10 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MediumApi.Application\MediumApi.Application.csproj" />
-    <ProjectReference Include="..\..\MediumApi.Domain\MediumApi.Domain.csproj" />
-    <ProjectReference Include="..\..\MediumApi.Infrastructure\MediumApi.Infrastructure.csproj" />
-    <ProjectReference Include="..\..\YTApi\YTScrapper.Shared\YTScrapper.Shared.csproj" />
+    <ProjectReference Include="..\MediumApi.Application\MediumApi.Application.csproj" />
+    <ProjectReference Include="..\MediumApi.Infrastructure\MediumApi.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
