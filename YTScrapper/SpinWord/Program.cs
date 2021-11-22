@@ -15,13 +15,31 @@ namespace SpinWord
         }
 
         static void Run(string toRun) =>
-            Console.WriteLine($"{toRun} => ${SpinWord(toRun)}");
+            Console.WriteLine($"{toRun} => {SpinWord(toRun)}");
 
         static string SpinWord(string incoming)
         {
+            var reversedWords = incoming.Split(" ")
+              .Select(word =>
+              {
+                  return word.Length >= 5 ?
+                    new string(word.Reverse().ToArray()) :
+                    word;
+              });
+
+            return string.Join(" ", reversedWords);
+        }
+
+        static string SpinWord2(string incoming)
+        {
             return incoming.Split(" ")
-              .Select(word => { if (word.Length > 5) { word.Reverse(); } return word; })
-              .Pipe(x => String.Join(" ", x));
+              .Select(word =>
+              {
+                  return word.Length >= 5 ?
+                    new string(word.Reverse().ToArray()) :
+                    word;
+              })
+              .Pipe(x => string.Join(" ", x));
         }
     }
 
