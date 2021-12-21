@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediumApi.Infrastructure", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediumApi.Presentation", "MediumApi.Presentation\MediumApi.Presentation.csproj", "{D5E2380E-999E-4F29-B599-677F1B4EB71D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpinWord", "SpinWord\SpinWord.csproj", "{29155B88-BC2F-4477-AD6E-340353F23C06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpinWord", "SpinWord\SpinWord.csproj", "{29155B88-BC2F-4477-AD6E-340353F23C06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniqueInOrder", "UniqueInOrder\UniqueInOrder.csproj", "{BB66C325-FF43-40AF-A3D6-BEBDCE9FB3B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{29155B88-BC2F-4477-AD6E-340353F23C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29155B88-BC2F-4477-AD6E-340353F23C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29155B88-BC2F-4477-AD6E-340353F23C06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB66C325-FF43-40AF-A3D6-BEBDCE9FB3B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB66C325-FF43-40AF-A3D6-BEBDCE9FB3B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB66C325-FF43-40AF-A3D6-BEBDCE9FB3B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB66C325-FF43-40AF-A3D6-BEBDCE9FB3B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +103,7 @@ Global
 		{677FF1FE-F7D6-4AF7-A920-4314EEB4FAD9} = {06A8AAB7-5713-4C5E-B492-EB87CEB1468E}
 		{D5E2380E-999E-4F29-B599-677F1B4EB71D} = {06A8AAB7-5713-4C5E-B492-EB87CEB1468E}
 		{29155B88-BC2F-4477-AD6E-340353F23C06} = {CE4969B9-7FF7-4F95-B0BF-0A0EDE98054E}
+		{BB66C325-FF43-40AF-A3D6-BEBDCE9FB3B4} = {CE4969B9-7FF7-4F95-B0BF-0A0EDE98054E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF5C40A5-13EF-4DDF-B706-01001C3E57B7}
